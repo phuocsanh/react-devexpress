@@ -16,11 +16,16 @@ export default function Task() {
 
       <DataGrid
         className={"dx-card content-block"}
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         dataSource={dataSource as any}
         showBorders={false}
         focusedRowEnabled={true}
         defaultFocusedRowIndex={0}
         columnAutoWidth={true}
+        loadPanel={{
+          enabled: true,
+          indicatorSrc: "../../../public/loading.gif",
+        }}
         columnHidingEnabled={true}
       >
         <Paging defaultPageSize={10} />

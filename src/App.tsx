@@ -1,4 +1,5 @@
-import 'devextreme/dist/css/dx.light.css';
+import "devextreme/dist/css/dx.light.css";
+import "devextreme/dist/css/dx.light.css";
 import "./themes/generated/theme.base.dark.css";
 import "./themes/generated/theme.base.css";
 import "./themes/generated/theme.additional.dark.css";
@@ -9,16 +10,24 @@ import { HashRouter as Router } from "react-router-dom";
 import { LoadPanel } from "devextreme-react";
 import { AuthProvider, useAuth } from "./contexts/auth";
 import Content from "./Content";
-import UnauthenticatedContent from "./UnauthenticatedContent";
+import UnauthenticatedContent from "./components/common/UnauthenticatedContent";
 import { useScreenSizeClass } from "./utils/media-query";
-import { ThemeContext, useThemeContext } from "./theme";
+import { ThemeContext, useThemeContext } from "./themes/theme";
 import { NavigationProvider } from "./contexts/navigation";
 
 function App() {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <LoadPanel visible={true} />;
+    return (
+      <LoadPanel
+        indicatorSrc="../public/loading.gif"
+        visible={true}
+        width={100}
+        height={100}
+        showPane={false}
+      />
+    );
   }
 
   if (user) {

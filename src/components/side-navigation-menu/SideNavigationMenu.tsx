@@ -7,13 +7,13 @@ import React, {
 } from "react";
 import { TreeView, TreeViewRef } from "devextreme-react/tree-view";
 import * as events from "devextreme/events";
-import { navigation } from "../../app-navigation";
+import { navigation } from "../../routes/app-navigation";
 import { useNavigation } from "../../contexts/navigation";
 import { useScreenSize } from "../../utils/media-query";
 import "./SideNavigationMenu.scss";
-import type { SideNavigationMenuProps } from "../../types";
+import type { SideNavigationMenuProps } from "../../types/common";
 
-import { ThemeContext } from "../../theme";
+import { ThemeContext } from "../../themes/theme";
 
 export default function SideNavigationMenu(
   props: React.PropsWithChildren<SideNavigationMenuProps>

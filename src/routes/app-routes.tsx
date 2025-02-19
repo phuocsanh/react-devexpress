@@ -1,5 +1,5 @@
-import { HomePage, TasksPage, ProfilePage } from "./pages";
-import { withNavigationWatcher } from "./contexts/navigation";
+import { HomePage, TasksPage, ProfilePage, ViewNamePage } from "../pages";
+import { withNavigationWatcher } from "../contexts/navigation";
 
 const routes = [
   {
@@ -17,6 +17,10 @@ const routes = [
   {
     path: "/chat",
     element: HomePage,
+  },
+  {
+    path: "/view-name",
+    element: ViewNamePage,
   },
 ];
 
