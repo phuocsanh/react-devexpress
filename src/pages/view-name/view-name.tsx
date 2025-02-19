@@ -1,13 +1,15 @@
-import React from 'react';
-import './view-name.scss';
+import React from "react";
+import "./view-name.scss";
 
-export default () => (
+export const ViewName = () => (
   <React.Fragment>
-    <h2>View Name</h2>
-    <div className={'content-block'}>
-      <div className={'dx-card responsive-paddings'}>
+    <p className="text-red-500 text-7xl">View Name</p>
+    <div className={"content-block"}>
+      <div className={"dx-card responsive-paddings text-amber-400"}>
         Put your content here
       </div>
     </div>
   </React.Fragment>
 );
+
+export default ViewName;

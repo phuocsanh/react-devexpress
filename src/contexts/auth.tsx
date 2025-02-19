@@ -5,8 +5,8 @@ import React, {
   useContext,
   useCallback,
 } from "react";
-import { getUser, signIn as sendSignInRequest } from "../api/auth";
-import type { User, AuthContextType } from "../types/common";
+import { getUser, signIn as sendSignInRequest } from "../apis/auth";
+import type { User, AuthContextType } from "../data-types/common";
 
 function AuthProvider(props: React.PropsWithChildren<unknown>) {
   const [user, setUser] = useState<User>();

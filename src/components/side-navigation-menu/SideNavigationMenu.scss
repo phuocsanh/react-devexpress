@@ -1,5 +1,5 @@
 @use "../../scss/dx-styles.scss" as *;
-@use "../../utils/patches.scss" as p;
+@use "../../hooks/patches.scss" as p;
 
 .dx-swatch-additional, .dx-swatch-additional-dark {
   &.side-navigation-menu {

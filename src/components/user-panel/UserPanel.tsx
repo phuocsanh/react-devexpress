@@ -4,7 +4,7 @@ import DropDownButton from "devextreme-react/drop-down-button";
 import List from "devextreme-react/list";
 import { useAuth } from "../../contexts/auth";
 import "./UserPanel.scss";
-import type { UserPanelProps } from "../../types/common";
+import { UserPanelProps } from "@/data-types/common";
 
 export default function UserPanel({ menuMode }: UserPanelProps) {
   const { signOut } = useAuth();

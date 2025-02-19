@@ -1,17 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Button from "devextreme-react/button";
 import Drawer from "devextreme-react/drawer";
 import { ScrollView, ScrollViewRef } from "devextreme-react/scroll-view";
 import Toolbar, { Item } from "devextreme-react/toolbar";
 import React, { useState, useCallback, useRef } from "react";
 import { useNavigate } from "react-router";
-import { Header, SideNavigationMenu, Footer } from "../../components";
 import "./side-nav-inner-toolbar.scss";
-import { useScreenSize } from "../../utils/media-query";
 import { Template } from "devextreme-react/core/template";
-import { useMenuPatch } from "../../utils/patches";
 import { TreeViewTypes } from "devextreme-react/tree-view";
-import type { SideNavToolbarProps } from "../../types/common";
 import { ButtonTypes } from "devextreme-react/button";
+import { SideNavToolbarProps } from "@/data-types/common";
+import { useScreenSize } from "@/hooks/media-query";
+import { useMenuPatch } from "@/hooks/patches";
+import { Footer, Header, SideNavigationMenu } from "@/components";
 
 export default function SideNavInnerToolbar({
   title,

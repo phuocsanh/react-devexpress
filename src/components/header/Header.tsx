@@ -1,12 +1,10 @@
 import Toolbar, { Item } from "devextreme-react/toolbar";
 import Button from "devextreme-react/button";
-import UserPanel from "../user-panel/UserPanel";
 import "./Header.scss";
 import { Template } from "devextreme-react/core/template";
 import { ThemeSwitcher } from "../theme-switcher/ThemeSwitcher";
-import type { HeaderProps } from "../../types/common";
-import { BackgroundColor } from "devextreme-react/cjs/circular-gauge";
-
+import UserPanel from "../user-panel/UserPanel";
+import { HeaderProps } from "@/data-types/common";
 export default function Header({
   menuToggleEnabled,
   title,

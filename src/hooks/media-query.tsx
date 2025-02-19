@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import type { Handle } from "../types/common";
+import type { Handle } from "../data-types/common";
 
 export const useScreenSize = () => {
   const [screenSize, setScreenSize] = useState(getScreenSize());

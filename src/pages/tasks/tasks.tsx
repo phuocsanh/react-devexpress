@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "devextreme/data/odata/store";
-import DataGrid, {
+import {
   Column,
   Pager,
   Paging,
@@ -8,83 +8,85 @@ import DataGrid, {
   Lookup,
 } from "devextreme-react/data-grid";
 import "./tasks.scss";
+const DataGrid = React.lazy(() => import("devextreme-react/data-grid"));
 
 export default function Task() {
   return (
     <React.Fragment>
       <h2>Tasks2</h2>
-
-      <DataGrid
-        className={"dx-card content-block"}
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        dataSource={dataSource as any}
-        showBorders={false}
-        focusedRowEnabled={true}
-        defaultFocusedRowIndex={0}
-        columnAutoWidth={true}
-        loadPanel={{
-          enabled: true,
-          indicatorSrc: "../../../public/loading.gif",
-        }}
-        columnHidingEnabled={true}
-      >
-        <Paging defaultPageSize={10} />
-        <Pager showPageSizeSelector={true} showInfo={true} />
-        <FilterRow visible={true} />
-
-        <Column dataField={"Task_ID"} width={90} hidingPriority={2} />
-        <Column
-          dataField={"Task_Subject"}
-          width={190}
-          caption={"Subject"}
-          hidingPriority={8}
-        />
-        <Column
-          dataField={"Task_Status"}
-          caption={"Status"}
-          hidingPriority={6}
-        />
-        <Column
-          dataField={"Task_Priority"}
-          caption={"Priority"}
-          hidingPriority={5}
+      <Suspense fallback={<div>Loading...</div>}>
+        <DataGrid
+          className={"dx-card content-block "}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          dataSource={dataSource as any}
+          showBorders={false}
+          focusedRowEnabled={true}
+          defaultFocusedRowIndex={0}
+          columnAutoWidth={true}
+          loadPanel={{
+            enabled: true,
+            indicatorSrc: "/loading.gif",
+          }}
+          columnHidingEnabled={true}
         >
-          <Lookup
-            dataSource={priorities}
-            valueExpr={"value"}
-            displayExpr={"name"}
+          <Paging defaultPageSize={10} />
+          <Pager showPageSizeSelector={true} showInfo={true} />
+          <FilterRow visible={true} />
+
+          <Column dataField={"Task_ID"} width={90} hidingPriority={2} />
+          <Column
+            dataField={"Task_Subject"}
+            width={190}
+            caption={"Subject"}
+            hidingPriority={8}
           />
-        </Column>
-        <Column
-          dataField={"ResponsibleEmployee.Employee_Full_Name"}
-          caption={"Assigned To"}
-          allowSorting={false}
-          hidingPriority={7}
-        />
-        <Column
-          dataField={"Task_Start_Date"}
-          caption={"Start Date"}
-          dataType={"date"}
-          hidingPriority={3}
-        />
-        <Column
-          dataField={"Task_Due_Date"}
-          caption={"Due Date"}
-          dataType={"date"}
-          hidingPriority={4}
-        />
-        <Column
-          dataField={"Task_Priority"}
-          caption={"Priority"}
-          name={"Priority"}
-          hidingPriority={1}
-        />
-        <Column
-          dataField={"Task_Completion"}
-          caption={"Completion"}
-          hidingPriority={0}
-        />
-      </DataGrid>
+          <Column
+            dataField={"Task_Status"}
+            caption={"Status"}
+            hidingPriority={6}
+          />
+          <Column
+            dataField={"Task_Priority"}
+            caption={"Priority"}
+            hidingPriority={5}
+          >
+            <Lookup
+              dataSource={priorities}
+              valueExpr={"value"}
+              displayExpr={"name"}
+            />
+          </Column>
+          <Column
+            dataField={"ResponsibleEmployee.Employee_Full_Name"}
+            caption={"Assigned To"}
+            allowSorting={false}
+            hidingPriority={7}
+          />
+          <Column
+            dataField={"Task_Start_Date"}
+            caption={"Start Date"}
+            dataType={"date"}
+            hidingPriority={3}
+          />
+          <Column
+            dataField={"Task_Due_Date"}
+            caption={"Due Date"}
+            dataType={"date"}
+            hidingPriority={4}
+          />
+          <Column
+            dataField={"Task_Priority"}
+            caption={"Priority"}
+            name={"Priority"}
+            hidingPriority={1}
+          />
+          <Column
+            dataField={"Task_Completion"}
+            caption={"Completion"}
+            hidingPriority={0}
+          />
+        </DataGrid>
+      </Suspense>
     </React.Fragment>
   );
 }

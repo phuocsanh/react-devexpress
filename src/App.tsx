@@ -10,10 +10,10 @@ import { HashRouter as Router } from "react-router-dom";
 import { LoadPanel } from "devextreme-react";
 import { AuthProvider, useAuth } from "./contexts/auth";
 import Content from "./Content";
-import UnauthenticatedContent from "./components/common/UnauthenticatedContent";
-import { useScreenSizeClass } from "./utils/media-query";
+import { useScreenSizeClass } from "./hooks/media-query";
 import { ThemeContext, useThemeContext } from "./themes/theme";
 import { NavigationProvider } from "./contexts/navigation";
+import UnauthenticatedContent from "./components/common/UnauthenticatedContent";
 
 function App() {
   const { user, loading } = useAuth();
@@ -31,7 +31,7 @@ function App() {
   }
 
   if (user) {
-    return <Content />;
+    return <Content  />;
   }
 
   return <UnauthenticatedContent />;
